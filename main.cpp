@@ -142,14 +142,33 @@ int solve(const statusArray& start, const statusArray& end){
 				}
 			}
 		}
-
-
-
+		for(int k=0; k<4; k++){
+			int nx = cx + movx[k];
+			int ny = cy + movy[k];
+			if(nx < 1 || nx > 3 || ny < 1 || ny > 3) continue;
+			std::swap(p.arr[cx][cy], p.arr[nx][ny]);
+			Board n(p.arr, 0, p.G+1, getH(p.arr, end), id++, p.cid);
+			std::swap(p.arr[cx][cy], p.arr[nx][ny]);
+			n.F = getF(n);
+			if(closed.find(array2int(n.arr)) == closed.end()){
+				std::set<Board>::iterator it = find(opening.begin(), opening.end(), n);
+				if(it != opening.end() && it->F > n.F){
+					opening.erase(it);
+					opening.insert(n);
+				}
+				if(it == opening.end()){
+					opening.insert(n);
+				}
+			}
+		}
 	}
-
-
-
+	return -1;
 }
 
+void output(int pid, int ss, int st){
+	if(st < 0) return;
+	else if(st ==0 ){
+		printf("")
+	}
 
-
+}
