@@ -164,11 +164,38 @@ int solve(const statusArray& start, const statusArray& end){
 	}
 	return -1;
 }
-
+void input(statusArray &S){
+	for(int i=1;i<=3;i++){
+		for(int j=1;j<=3;j++){
+			scanf("%1d",&S[i][j]);
+		}
+	}
+}
 void output(int pid, int ss, int st){
 	if(st < 0) return;
 	else if(st ==0 ){
-		printf(" ");
+		printf("step:%d ==>\n",st);
+		statusArray *p = &path[ss].arr;
+		for(int i=1;i<=3;i++){
+			for(int j=1;j<=3;j++){
+				printf("%d",(*p)[i][j]);
+			}
+			printf("\n");
+		}
 	}
 
+}
+int main(){
+	freopen("test.in","r",stdin);
+	statusArray S,E;
+	input(S);
+	input(E);
+	int step = solve(S,E);
+	if(step != -1){
+		output((path.end()-1)->pid, path.size() - 1, step);
+	}
+	else
+		printf("No Answer!\n");
+
+	return 0;
 }
