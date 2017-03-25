@@ -168,7 +168,7 @@ int solve(const statusArray& start, const statusArray& end){
 void output(int pid, int ss, int st){
 	if(st < 0) return;
 	else if(st ==0 ){
-		printf("")
+		printf(" ");
 	}
 
 }
