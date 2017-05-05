@@ -17,10 +17,6 @@ int eightPuzzle::count_h_1(ItemPtr node)
 }
 
 //计算h_x 方法2：逆序数
-//这个一般适用于
-//1 2 3
-//4 5 6
-//7 8
 int eightPuzzle::count_h_2(ItemPtr node)
 {
     int mark = 0, temp_i = 0, temp_j = 0;
@@ -37,12 +33,5 @@ int eightPuzzle::count_h_2(ItemPtr node)
             }
         }
     }
-    return mark;
-}
-
-//计算h_x 方法3：不在对应位置点的个数
-int eightPuzzle::count_h_3(ItemPtr node)
-{
-    int mark = 0;
     return mark;
 }

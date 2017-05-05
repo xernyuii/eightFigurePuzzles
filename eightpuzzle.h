@@ -66,7 +66,6 @@ public:
     //mode
     int count_h_1(ItemPtr node);
     int count_h_2(ItemPtr node);
-    int count_h_3(ItemPtr node);
 
 private slots:
     void on_Go_clicked();
